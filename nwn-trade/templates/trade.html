@@ -1,0 +1,124 @@
+<section class="nwn-trade">
+
+    <header class="nwn-header">
+        <div class="side left">
+            <img class="portrait" src="{{ui.buyerPortrait}}" alt="{{ui.buyerName}}">
+            <div class="name">{{ui.buyerName}}</div>
+            <div class="coins">
+                <span class="coin"><img class="coin-icon" alt="pp" src="{{coinIcons.pp}}"><span>{{coins.buyer.pp}}</span></span>
+                <span class="coin"><img class="coin-icon" alt="gp" src="{{coinIcons.gp}}"><span>{{coins.buyer.gp}}</span></span>
+                <span class="coin"><img class="coin-icon" alt="sp" src="{{coinIcons.sp}}"><span>{{coins.buyer.sp}}</span></span>
+                <span class="coin"><img class="coin-icon" alt="cp" src="{{coinIcons.cp}}"><span>{{coins.buyer.cp}}</span></span>
+            </div>
+        </div>
+
+        <div class="toggle">
+            <button class="nwn-btn tab">{{localize "NWNDialog.Trade.Tab.Trade"}}</button>
+            <span class="slash">/</span>
+            <button class="nwn-btn tab active">{{localize "NWNDialog.Trade.Tab.Barter"}}</button>
+        </div>
+
+        <div class="side right">
+            <div class="coins">
+                <span class="coin"><img class="coin-icon" alt="pp" src="{{coinIcons.pp}}"><span>{{coins.seller.pp}}</span></span>
+                <span class="coin"><img class="coin-icon" alt="gp" src="{{coinIcons.gp}}"><span>{{coins.seller.gp}}</span></span>
+                <span class="coin"><img class="coin-icon" alt="sp" src="{{coinIcons.sp}}"><span>{{coins.seller.sp}}</span></span>
+                <span class="coin"><img class="coin-icon" alt="cp" src="{{coinIcons.cp}}"><span>{{coins.seller.cp}}</span></span>
+            </div>
+            <div class="name">{{ui.sellerName}}</div>
+            <img class="portrait" src="{{ui.sellerPortrait}}" alt="{{ui.sellerName}}">
+        </div>
+    </header>
+
+    <section class="nwn-body">
+        <div class="grid-three">
+            <!-- ЛЕВЫЙ ИНВЕНТАРЬ -->
+            <div class="nwn-inv nwn-inv-left">
+                <div class="nwn-grid">
+                    {{#each items.buyer as |it|}}
+                    <div class="nwn-cell" data-item-id="{{it.id}}" title="{{it.name}}">
+                        <img src="{{it.img}}" alt=""><span class="q">{{it.qty}}</span>
+                    </div>
+                    {{/each}}
+                </div>
+            </div>
+
+            <!-- ЦЕНТР: ДВЕ ВЫСОКИЕ КОРЗИНЫ -->
+            <div class="center">
+                <div class="totals">
+                    <div class="t total">
+                        {{#if offer.leftMixed.gp}}
+                        <span class="coin"><img class="coin-icon" src="{{coinIcons.gp}}"><span>{{offer.leftMixed.gp}}</span></span>
+                        {{/if}}
+                        {{#if offer.leftMixed.sp}}
+                        <span class="coin"><img class="coin-icon" src="{{coinIcons.sp}}"><span>{{offer.leftMixed.sp}}</span></span>
+                        {{/if}}
+                        {{#if offer.leftMixed.showCp}}
+                        <span class="coin"><img class="coin-icon" src="{{coinIcons.cp}}"><span>{{offer.leftMixed.cp}}</span></span>
+                        {{/if}}
+                        {{#unless offer.leftMixed.any}}<span>0 cp</span>{{/unless}}
+                    </div>
+
+                    <div class="t total">
+                        {{#if offer.rightMixed.gp}}
+                        <span class="coin"><img class="coin-icon" src="{{coinIcons.gp}}"><span>{{offer.rightMixed.gp}}</span></span>
+                        {{/if}}
+                        {{#if offer.rightMixed.sp}}
+                        <span class="coin"><img class="coin-icon" src="{{coinIcons.sp}}"><span>{{offer.rightMixed.sp}}</span></span>
+                        {{/if}}
+                        {{#if offer.rightMixed.showCp}}
+                        <span class="coin"><img class="coin-icon" src="{{coinIcons.cp}}"><span>{{offer.rightMixed.cp}}</span></span>
+                        {{/if}}
+                        {{#unless offer.rightMixed.any}}<span>0 cp</span>{{/unless}}
+                    </div>
+                </div>
+
+                <div class="towers">
+                    <div class="tower">
+                        <div class="title">{{localize "NWNDialog.Trade.GiveTitle"}}</div>
+                        <div class="nwn-slots tall" data-side="left">
+                            {{#each offer.left as |r|}}
+                            <div class="nwn-slot filled" data-id="{{r.id}}" title="{{r.name}}">
+                                <img src="{{r.img}}" alt="">
+                                <span class="q">{{r.qty}}</span>
+                            </div>
+                            {{/each}}
+                        </div>
+                    </div>
+
+                    <div class="tower">
+                        <div class="title">{{localize "NWNDialog.Trade.TakeTitle"}}</div>
+                        <div class="nwn-slots tall" data-side="right">
+                            {{#each offer.right as |r|}}
+                            <div class="nwn-slot filled" data-id="{{r.id}}" title="{{r.name}}">
+                                <img src="{{r.img}}" alt="">
+                                <span class="q">{{r.qty}}</span>
+                            </div>
+                            {{/each}}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="actions">
+                    <button class="nwn-btn scale" data-action="balance">⚖️ {{localize "NWNDialog.Trade.Compare"}}</button>
+                </div>
+            </div>
+
+            <!-- ПРАВЫЙ ИНВЕНТАРЬ -->
+            <div class="nwn-inv nwn-inv-right">
+                <div class="nwn-grid">
+                    {{#each items.seller as |it|}}
+                    <div class="nwn-cell" data-item-id="{{it.id}}" title="{{it.name}}">
+                        <img src="{{it.img}}" alt=""><span class="q">{{it.qty}}</span>
+                    </div>
+                    {{/each}}
+                </div>
+            </div>
+        </div>
+
+        <div class="barter-footer">
+            <button class="nwn-btn xl" data-action="finalize">{{localize "NWNDialog.Trade.Tab.Barter"}}</button>
+        </div>
+    </section>
+
+</section>

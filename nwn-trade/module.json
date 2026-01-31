@@ -1,0 +1,29 @@
+{
+  "id": "nwn-trade",
+  "title": "NWN Trade (PF2e Barter)",
+  "description": "Отдельный модуль торговли и бартера для PF2e (Foundry VTT V12–V13). Двухколоночные корзины, сравнитель, сделка, двойной клик по NPC.",
+  "version": "0.2.0",
+  "authors": [
+    {
+      "name": "ChatGPT (generated)"
+    }
+  ],
+  "compatibility": {
+    "minimum": "12",
+    "verified": "13"
+  },
+  "esmodules": [
+    "scripts/main.js",
+    "scripts/trade/TradeApp.js"
+  ],
+  "styles": [
+    "styles/trade.css"
+  ],
+  "languages": [
+    {
+      "lang": "ru",
+      "name": "Русский",
+      "path": "lang/ru.json"
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "NWNTrade": {
+    "Trade": {
+      "Tab": {
+        "Trade": "Trade",
+        "Barter": "Barter"
+      },
+      "PlayerInventory": "Player Inventory",
+      "SellerInventory": "Seller Inventory",
+      "GiveTitle": "You Give",
+      "TakeTitle": "You Take",
+      "GiveShort": "Give",
+      "TakeShort": "Take",
+      "Bargain": "Bargain",
+      "Compare": "Compare",
+      "Exchange": "Exchange",
+      "Discount": "Discount"
+    }
+  },
+  "Save": "Save"
+}

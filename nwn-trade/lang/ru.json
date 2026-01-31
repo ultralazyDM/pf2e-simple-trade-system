@@ -1,0 +1,8 @@
+{
+  "NWNDialog.Trade.Tab.Trade": "Торговля",
+  "NWNDialog.Trade.Tab.Barter": "Бартер",
+  "NWNDialog.Trade.GiveTitle": "Вы отдаёте",
+  "NWNDialog.Trade.TakeTitle": "Вы берёте",
+  "NWNDialog.Trade.Compare": "Сравнить",
+  "NWNDialog.Trade.NoCharacter": "У вас нет активного персонажа для торговли."
+}
